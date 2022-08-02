@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.signuppage{
+  display: flex;
+  justify-content: center;
+}
+.signuppage form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.centering{
+  border: 1px solid black;
+  background-color: rgba(50, 50, 50, 0.3);
+  width: 70%;
+}
+/* .signuppage form label{
+
+} */
+.homeproducts{
+  background: white;
+  border: 1px solid black;
+
+}
+.ProductCard.card{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.mainPic{
+  width: 300px;
+  height: 300px;
+}
