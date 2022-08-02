@@ -1,14 +1,43 @@
 .navbar{
     display:flex;
-    width:100%;
+    max-width:100%;
     background-color: white;
     height: 100px;
-    justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 4px black;
     position: sticky;
     top: 0;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-.navbar > *{
-    padding: 0 30px;
+.icon-button svg{
+  width: 50px;
+  height: 50px;
+}
+.icon-button svg:hover{
+  transform:translate(0, -2px)
+}
+
+.dropdown{
+  position: absolute;
+  top: 70px;
+  width: 100px;
+  transform: translateX(-60%);
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: hidden;
+}
+.menu-item{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+.menu-item:hover{
+  background-color: rgba(0,0,0, 0.1);
 }

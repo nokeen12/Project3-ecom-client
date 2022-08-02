@@ -13,7 +13,7 @@ function Login(props) {
   
   const navigate = useNavigate();
 
-  const { storeToken } = useContext(AuthContext);
+  const { storeToken, isLoggedIn, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -30,7 +30,8 @@ function Login(props) {
         console.log('JWT token', response.data.authToken );
 
         storeToken(response.data.authToken)
-      
+
+        authenticateUser();
         navigate('/');  
       })
       .catch((error) => {
@@ -41,31 +42,41 @@ function Login(props) {
   
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+        <h1>Login</h1>
+        {isLoggedIn && (
+            <>
+                <p>Already logged in!</p>
+            </>
+        )}
+        {!isLoggedIn && (
+            <>
+                <form onSubmit={handleLoginSubmit}>
+                    <label>Email:</label>
+                    <input 
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleEmail}
+                    />
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input 
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleEmail}
-        />
+                    <label>Password:</label>
+                    <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handlePassword}
+                    />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+                    <button type="submit">Login</button>
+                </form>
+                        
+                { errorMessage && <p className="error-message">{errorMessage}</p> }
 
-        <button type="submit">Login</button>
-      </form>
-      { errorMessage && <p className="error-message">{errorMessage}</p> }
+                <p>Don't have an account yet?</p>
+                <Link to={"/signup"}> Sign Up</Link>
+            </>
+        )}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
     </div>
   )
 }

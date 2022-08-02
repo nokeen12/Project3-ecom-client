@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+
 function Navlinks(){
-    const { isLoggedIn, user } = useContext(AuthContext);
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
 
     return(
@@ -12,6 +13,8 @@ function Navlinks(){
             <>
             <Link to="/profile"><button>profile</button></Link>
             <Link to="/edit"><button>edit profile</button></Link>
+            <button onClick={logOutUser}>Logout</button>
+            <span> {user && user.username}</span>
             </>
             )}
             {!isLoggedIn && (

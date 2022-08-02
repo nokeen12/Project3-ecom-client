@@ -29,7 +29,7 @@ function HomePage(){
                         <div className="ProductCard card" key={product._id}>
                             <Link to={`/products/${product._id}`}>
                                 <div className="pictures">
-                                    <img src={product.gallery[4]} className="mainPic"/>
+                                    <img src={product.gallery[3]} className="mainPic"/>
                                     <div className="galleryPics">
 
                                     </div>
