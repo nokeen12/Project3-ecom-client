@@ -23,9 +23,9 @@ function NavItem(props){
 
     return(
         <li className="nav-item">
-            <a href='#' className="icon-button" onClick={() => setOpen(!open)}>
+            <div className="icon-button" onClick={() => setOpen(!open)}>
                 {props.icon}
-            </a>
+            </div>
 
             {open && props.children}
         </li>
@@ -36,19 +36,17 @@ function DropdownMenu(){
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
     function DropdownItem(props){
         return(
-            <Link to="" className="menu-item">
+            <div className="menu-item">
                 {props.children}
-            </Link>
+            </div>
         )
     }
     return(
-        
         <div className="dropdown">
-            
+            {isLoggedIn && <span>{user && user.username}</span>}
             <DropdownItem><Link to="/">Home</Link></DropdownItem>
             {isLoggedIn && (
             <>
-            <DropdownItem><span>{user && user.username}</span></DropdownItem>
             <DropdownItem><Link to="/profile">Profile</Link></DropdownItem>
             <DropdownItem><Link to="/edit">Edit Profile</Link></DropdownItem>
             <DropdownItem><Link to="/" onClick={logOutUser}>Logout</Link></DropdownItem>

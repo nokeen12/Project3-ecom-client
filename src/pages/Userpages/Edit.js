@@ -1,11 +1,16 @@
-// import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
+
+
+
 function Edit(){
+
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
     return(
         <div>
             <h1>Edit Page</h1>
-            {/* <Link to="/">Go to home</Link>
-            <Link to="/profile">Go to profile</Link>
-            <Link to="/signup">Go to signup</Link> */}
         </div>
     )
 }

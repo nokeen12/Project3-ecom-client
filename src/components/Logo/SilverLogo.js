@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import './SilverLogo.css'
 function SilverLogo(){
     return(
-        <div className='group'>
+        <Link to="/" className='group'>
             <h1 className='toplogo'>Age of</h1>
             <h2 className='botlogo'>Silver</h2>
-        </div>
+        </Link>
     )
 }
 export default SilverLogo;

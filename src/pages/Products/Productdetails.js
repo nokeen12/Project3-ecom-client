@@ -1,51 +1,38 @@
-// import {Link} from 'react-router-dom'
-// import axios from "axios";
-// import { useState, useEffect } from 'react';
+import {useParams} from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-// const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:5005";
 
+function ProductDetails(){
 
-// function HomePage(){
-//     const [products, setProducts] = useState([]);
+    const params = useParams();
 
-//     const getAllProducts = () => {
-//         axios.get(`${API_URL}/api/products`)
-//         .then(response=> setProducts(response.data))
-//         .catch(err=>console.log(err));
-//     }
+    const [product, setProduct] = useState([]);
 
-//     //only grabs all products once
-//     useEffect(()=>{
-//         getAllProducts();
-//     }, []);
+    const getProduct = () => {
+        axios.get(`${API_URL}/api/products/${params.id}`)
+        .then(response=> setProduct(response.data))
+        .catch(err=>console.log(err));
+    }
 
-
-//     return(
-//         <div className="Homepage">
-//             <h1>Home Page</h1>
-//             <div className="homeproducts">
-//                 {products.map(product=>{
-//                     return(
-//                         <div className="ProductCard card" key={product._id}>
-//                             <Link to={`/products/${product._id}`}>
-//                                 <div className="pictures">
-//                                     <img src={product.gallery[0]} className="mainPic"/>
-//                                     <div className="galleryPics">
-
-//                                     </div>
-//                                 </div>
-//                                 <div className="description">
-//                                     <h3>{product.title}</h3>
-//                                     {/* <p>{document.desc}</p> */}  
-//                                     <p>{product.weight}</p>
-//                                     <p>{product.price}</p>
-//                                 </div>
-//                             </Link>
-//                         </div>
-//                     )
-//                 })}
-//             </div>
-//         </div>
-//     )
-// }
-// export default HomePage;
+    //grabs the product that matches the params
+    useEffect(()=>{
+        getProduct();
+    }, []);
+    return(
+        <div className="ProductPage">
+            <p>Product details page</p>
+            <div className="pictures">
+                <img src={product.gallery && product.gallery[3]} className="mainPic" alt="jewelry"/>
+                <div className="galleryPics">
+                </div>
+            </div>
+            <div className="description">
+                <h3>{product.title}</h3>
+                <p>{product.price}</p>
+            </div>           
+        </div>
+    )
+}
+export default ProductDetails;

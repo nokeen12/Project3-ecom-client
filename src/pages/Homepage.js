@@ -23,13 +23,14 @@ function HomePage(){
     return(
         <div className="Homepage">
             <h1>Home Page</h1>
+            <Link to="/products">All Products</Link>
             <div className="homeproducts">
                 {products.map(product=>{
                     return(
                         <div className="ProductCard card" key={product._id}>
                             <Link to={`/products/${product._id}`}>
                                 <div className="pictures">
-                                    <img src={product.gallery[3]} className="mainPic"/>
+                                    <img src={product.gallery[3]} className="mainPic" alt="jewelry"/>
                                     <div className="galleryPics">
 
                                     </div>
