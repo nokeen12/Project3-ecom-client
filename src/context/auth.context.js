@@ -8,6 +8,7 @@ function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [admin, setAdmin] = useState(false);
   
     const storeToken = (token) => {
         localStorage.setItem('authToken', token);
@@ -30,20 +31,23 @@ function AuthProviderWrapper(props) {
            // Update state variables        
             setIsLoggedIn(true);
             setIsLoading(false);
-            setUser(user);        
+            setUser(user);
+            setAdmin(user.isAdmin);        
           })
           .catch((error) => {
             // If the server sends an error response (invalid token) 
             // Update state variables         
             setIsLoggedIn(false);
             setIsLoading(false);
-            setUser(null);        
+            setUser(null);
+            setAdmin(false);        
           });      
         } else {
           // If the token is not available (or is removed)
             setIsLoggedIn(false);
             setIsLoading(false);
-            setUser(null);      
+            setUser(null);
+            setAdmin(false);      
         }   
       }
 
@@ -69,6 +73,7 @@ function AuthProviderWrapper(props) {
             isLoggedIn,
             isLoading,
             user,
+            admin,
             storeToken,
             authenticateUser,
             logOutUser

@@ -25,7 +25,7 @@ function App() {
         <Route path="/profile" element={ <IsPrivate><Profile /></IsPrivate> }/>
         <Route path="/signup" element={ <Signup /> }/>
         <Route path="/login" element={ <Login /> }/>
-        <Route path="/cart" element={<Cart /> }/>
+        <Route path="/cart" element={<IsPrivate><Cart /></IsPrivate> }/>
         <Route path="/products/:id" element={ <ProductDetails /> }/>
         <Route path="/products" element={ <ProductList/> }/>
         <Route path="/products/:id/edit" element={ <IsPrivate><ProductEdit/></IsPrivate> }/>

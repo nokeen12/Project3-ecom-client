@@ -25,7 +25,7 @@ function ProductDetails(){
     }, []);
 
     //need to send this product to the user cart
-    const handleCartSubmit = (e) => {
+    const handleAddCartSubmit = (e) => {
         e.preventDefault();
         const requestBody = { userId: user._id, productId};
         axios.put(`${API_URL}/api/cart`, requestBody)
@@ -51,7 +51,7 @@ function ProductDetails(){
                 <p>{product.price}</p>
             </div>
 
-            {isLoggedIn && <form onSubmit={handleCartSubmit}><button type='submit'>Add to Cart</button></form>}
+            {isLoggedIn && <form onSubmit={handleAddCartSubmit}><button type='submit'>Add to Cart</button></form>}
             
 
             { errorMessage && <p className="error-message">{errorMessage}</p> }

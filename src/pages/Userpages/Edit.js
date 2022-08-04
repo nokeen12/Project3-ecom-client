@@ -6,7 +6,7 @@ import axios from "axios";
 const API_URL = "http://localhost:5005";
 
 function Edit(){
-    const { user } = useContext(AuthContext);
+    const { user, logOutUser } = useContext(AuthContext);
 
     const [email, setEmail] = useState(user.email);
     // const [password, setPassword] = useState('');
@@ -28,6 +28,19 @@ function Edit(){
         axios.put(`${API_URL}/api/profile/edit/${user._id}`, requestBody)
           .then(response => {
             navigate('/profile');
+          })
+          .catch((error) => {
+            const errorDescription = error.response.data.message;
+            setErrorMessage(errorDescription);
+          })
+    };
+
+    const handleDeleteSubmit = (e) => {
+        e.preventDefault();
+        axios.delete(`${API_URL}/api/profile/${user._id}`)
+          .then(response => {
+            logOutUser();
+            navigate('/');
           })
           .catch((error) => {
             const errorDescription = error.response.data.message;
@@ -65,6 +78,9 @@ function Edit(){
             /> */}
 
             <button type="submit">Edit Account</button>
+        </form>
+        <form onSubmit={handleDeleteSubmit}>
+            <button type="submit">Delete Account</button>
         </form>
 
         { errorMessage && <p className="error-message">{errorMessage}</p> }
