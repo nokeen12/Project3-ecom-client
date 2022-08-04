@@ -48,7 +48,7 @@ function ProductDetails(){
             </div>
             <div className="description">
                 <h3>{product.title}</h3>
-                <p>{product.price}</p>
+                <p>${product.price}</p>
             </div>
 
             {isLoggedIn && <form onSubmit={handleAddCartSubmit}><button type='submit'>Add to Cart</button></form>}
