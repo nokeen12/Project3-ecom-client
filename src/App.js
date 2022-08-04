@@ -12,6 +12,7 @@ import Navbar from './components/Navbar/Navbar'
 import ProductList from './pages/Products/Productlist';
 import ProductEdit from './pages/Products/Productedit';
 import IsPrivate from './components/IsPrivate';
+import Cart from './pages/Selection/Cart';
 
 function App() {
   return (
@@ -20,10 +21,11 @@ function App() {
       <Routes>
         <Route path="/" element={ <HomePage /> }/>
         <Route path="/home" element={ <HomePage /> }/>
-        <Route path="/edit" element={ <IsPrivate><Edit /></IsPrivate> }/>
+        <Route path="/profile/edit/:id" element={ <IsPrivate><Edit /></IsPrivate> }/>
         <Route path="/profile" element={ <IsPrivate><Profile /></IsPrivate> }/>
         <Route path="/signup" element={ <Signup /> }/>
         <Route path="/login" element={ <Login /> }/>
+        <Route path="/cart" element={<Cart /> }/>
         <Route path="/products/:id" element={ <ProductDetails /> }/>
         <Route path="/products" element={ <ProductList/> }/>
         <Route path="/products/:id/edit" element={ <IsPrivate><ProductEdit/></IsPrivate> }/>

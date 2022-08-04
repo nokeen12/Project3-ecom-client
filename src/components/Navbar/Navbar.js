@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import SilverLogo from "../Logo/SilverLogo";
-// import Navlinks from "./Navlinks";
 import { ReactComponent as BurgerIcon } from '../../icons/hamburgermenu.svg'
 import { AuthContext } from "../../context/auth.context";
 
@@ -47,8 +46,9 @@ function DropdownMenu(){
             <DropdownItem><Link to="/">Home</Link></DropdownItem>
             {isLoggedIn && (
             <>
+            <DropdownItem><Link to="/cart">View Cart</Link></DropdownItem>
             <DropdownItem><Link to="/profile">Profile</Link></DropdownItem>
-            <DropdownItem><Link to="/edit">Edit Profile</Link></DropdownItem>
+            <DropdownItem><Link to={`/profile/edit/:${user._id}`}>Edit Profile</Link></DropdownItem>
             <DropdownItem><Link to="/" onClick={logOutUser}>Logout</Link></DropdownItem>
             </>
             )}

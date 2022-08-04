@@ -12,7 +12,7 @@ function Profile(){
                 <>
                     <h3>Username: {user.username}</h3>
                     <h3>Email: {user.email}</h3>
-                    <Link to="/edit"><h3>Edit Profile</h3></Link>
+                    <Link to={`/profile/edit/:${user._id}`}><h3>Edit Profile</h3></Link>
                 </>
             )}
             {!isLoggedIn && (

@@ -1,16 +1,19 @@
-import {useParams} from 'react-router-dom';
-import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
 function ProductDetails(){
-
+    const { isLoggedIn, user } = useContext(AuthContext);
     const params = useParams();
-
     const [product, setProduct] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(undefined);
+    const productId = params.id
+    const navigate = useNavigate();
 
-    const getProduct = () => {
+    function getProduct(){
         axios.get(`${API_URL}/api/products/${params.id}`)
         .then(response=> setProduct(response.data))
         .catch(err=>console.log(err));
@@ -20,6 +23,21 @@ function ProductDetails(){
     useEffect(()=>{
         getProduct();
     }, []);
+
+    //need to send this product to the user cart
+    const handleCartSubmit = (e) => {
+        e.preventDefault();
+        const requestBody = { userId: user._id, productId};
+        axios.put(`${API_URL}/api/cart`, requestBody)
+          .then(response => {
+            navigate('/cart');
+          })
+          .catch((error) => {
+            const errorDescription = error.response.data.message;
+            setErrorMessage(errorDescription);
+          })
+    };
+    
     return(
         <div className="ProductPage">
             <p>Product details page</p>
@@ -31,7 +49,12 @@ function ProductDetails(){
             <div className="description">
                 <h3>{product.title}</h3>
                 <p>{product.price}</p>
-            </div>           
+            </div>
+
+            {isLoggedIn && <form onSubmit={handleCartSubmit}><button type='submit'>Add to Cart</button></form>}
+            
+
+            { errorMessage && <p className="error-message">{errorMessage}</p> }
         </div>
     )
 }
