@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ProductDetails(){
     const { isLoggedIn, user } = useContext(AuthContext);
@@ -28,7 +28,7 @@ function ProductDetails(){
     const handleAddCartSubmit = (e) => {
         e.preventDefault();
         const requestBody = { userId: user._id, productId};
-        axios.put(`${API_URL}/api/cart`, requestBody)
+        axios.post(`${API_URL}/api/cart`, requestBody)
           .then(response => {
             navigate('/cart');
           })
