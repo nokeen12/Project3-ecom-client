@@ -25,7 +25,7 @@ function HomePage(){
             <h1>Home Page</h1>
             <Link to="/products">All Products</Link>
             <div className="homeproducts">
-                {products.map(product=>{
+                {products.filter((item, index) => index < 3).map(product=>{
                     return(
                         <div className="ProductCard card" key={product._id}>
                             <Link to={`/products/${product._id}`}>
@@ -37,7 +37,7 @@ function HomePage(){
                                 </div>
                                 <div className="description">
                                     <h3>{product.title}</h3>
-                                    <p>{product.price}</p>
+                                    <p>${product.price}</p>
                                 </div>
                             </Link>
                         </div>

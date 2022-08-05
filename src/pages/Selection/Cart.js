@@ -8,12 +8,13 @@ const API_URL = process.env.REACT_APP_API_URL;
 function Cart(){
     const { user } = useContext(AuthContext);
     const [ cart, setCart ] = useState([]);
-    const [errorMessage, setErrorMessage] = useState(undefined);
+    // const [errorMessage, setErrorMessage] = useState(undefined);
 
     const getUserCart = () => {
         axios.get(`${API_URL}/api/profile/cart/${user._id}`)
         .then(response=> {
             setCart(response.data)
+            console.log(response.data)
         })
         .catch(err=>console.log('there was an error: ', err));
     }
@@ -21,22 +22,14 @@ function Cart(){
     useEffect(()=>{
         getUserCart()
     }, []);
-    // document.querySelectorAll('#price').forEach(each=>{
-    //     console.log(each)
-    // })
 
-    // const handleDeleteItemSubmit = (e) => {
-    //     e.preventDefault();
-    //     const requestBody = { userId: user._id, index: key};
-    //     axios.put(`${API_URL}/api/cart`, requestBody)
-    //       .then(response => {
-
-    //       })
-    //       .catch((error) => {
-    //         const errorDescription = error.response.data.message;
-    //         setErrorMessage(errorDescription);
-    //       })
-    // };
+    let handleDeleteItemSubmit = (e) => {
+        e.preventDefault();
+        let x = e.target.getAttribute("removeproduct")
+        setCart(cart.filter(items=>items.title!==x))
+        axios.put(`${API_URL}/api/profile/cart/${user._id}`, cart)
+        .catch(err=>console.log('there was an error: ', err));
+    };
 
     let total = 0;
     return(
@@ -46,17 +39,16 @@ function Cart(){
                 total += Number(product.price)
                 return(
                     <div key={index}>
-                        <p>{product.title}</p>
-                        <p>${product.price}</p>
-                        {/* <form onSubmit={handleDeleteItemSubmit}>
-                            <button type="submit" >Delete Account</button>
-                        </form> */}
+                        <img src={product.gallery[3]} className="cartPic" alt="jewelry"/>       
+                        <p className='title'>{product.title}</p>
+                        <p>$<span className='price'>{product.price}</span></p>
+                        <button removeproduct={product.title} onClick={handleDeleteItemSubmit}>Delete Item</button>
                     </div>
                 )
             })}
             <p>Total is ${Math.round(total*100)/100}</p>
 
-            { errorMessage && <p className="error-message">{errorMessage}</p> }
+            {/* { errorMessage && <p className="error-message">{errorMessage}</p> } */}
 
         </div>
     )

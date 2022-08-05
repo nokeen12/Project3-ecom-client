@@ -36,7 +36,7 @@ function ProductList(){
                                 </div>
                                 <div className="description">
                                     <h3>{product.title}</h3>
-                                    <p>{product.price}</p>
+                                    <p>${product.price}</p>
                                 </div>
                             </Link>
                         </div>
