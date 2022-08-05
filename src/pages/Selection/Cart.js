@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -47,7 +48,7 @@ function Cart(){
                 )
             })}
             <p>Total is ${Math.round(total*100)/100}</p>
-
+            <Link to='/checkout'><button>Checkout Now</button></Link>
             {/* { errorMessage && <p className="error-message">{errorMessage}</p> } */}
 
         </div>

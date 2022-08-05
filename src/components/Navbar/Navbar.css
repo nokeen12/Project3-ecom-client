@@ -22,12 +22,12 @@
 .dropdown{
   position: absolute;
   top: 70px;
-  width: 100px;
+  width: 120px;
   transform: translateX(-60%);
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 5px;
   overflow: hidden;
 }
 .menu-item{

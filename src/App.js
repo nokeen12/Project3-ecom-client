@@ -13,6 +13,7 @@ import ProductList from './pages/Products/Productlist';
 import ProductEdit from './pages/Products/Productedit';
 import IsPrivate from './components/IsPrivate';
 import Cart from './pages/Selection/Cart';
+import Checkout from './pages/Selection/Checkout';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={ <Signup /> }/>
         <Route path="/login" element={ <Login /> }/>
         <Route path="/cart" element={<IsPrivate><Cart /></IsPrivate> }/>
+        <Route path="/checkout" element={<IsPrivate><Checkout /></IsPrivate> }/>
         <Route path="/products/:id" element={ <ProductDetails /> }/>
         <Route path="/products" element={ <ProductList/> }/>
         <Route path="/products/:id/edit" element={ <IsPrivate><ProductEdit/></IsPrivate> }/>

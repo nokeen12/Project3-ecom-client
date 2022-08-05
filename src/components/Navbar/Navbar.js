@@ -44,6 +44,7 @@ function DropdownMenu(){
         <div className="dropdown">
             {isLoggedIn && <span>{user && user.username}</span>}
             <DropdownItem><Link to="/">Home</Link></DropdownItem>
+            <DropdownItem><Link to="/products">All Products</Link></DropdownItem>
             {isLoggedIn && (
             <>
             <DropdownItem><Link to="/cart">View Cart</Link></DropdownItem>
