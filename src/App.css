@@ -51,27 +51,27 @@
   background-color: rgba(50, 50, 50, 0.3);
   width: 70%;
 }
-/* .signuppage form label{
-
-} */
 .homeproducts{
-  /* background: white; */
-  /* border-top: 1px solid black; */
   display:flex;
-  justify-content: center;
+  justify-content:space-evenly;
   flex-wrap:wrap;
 }
 .ProductCard.card{
+  background: white;
+  border: 1px solid black;
+  width: 250px;
+  margin: 5px;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  /* margin-left: 15%; */
-  /* width: 70%; */
   margin-top: 50px;
   margin-bottom: 0;
-  /* margin-left: 0; */
   padding: 0;
 
+}
+.ProductCard.card:hover{
+transform:translateY(-5px);
+box-shadow: 0 0 20px rgba(50, 50, 50, 0.5);
 }
 .ProductCard.card h3{
   width: 50%;
