@@ -26,9 +26,10 @@ function Cart(){
 
     let handleDeleteItemSubmit = (e) => {
         e.preventDefault();
-        let x = e.target.getAttribute("removeproduct")
-        setCart(cart.filter(items=>items.title!==x))
-        axios.put(`${API_URL}/api/profile/cart/${user._id}`, cart)
+        let productId = e.target.getAttribute("removeproduct")
+        let requestBody = { productId }
+        setCart(cart.filter(items=>items.title!==productId))
+        axios.put(`${API_URL}/api/profile/cart/${user._id}`, requestBody)
         .catch(err=>console.log('there was an error: ', err));
     };
 

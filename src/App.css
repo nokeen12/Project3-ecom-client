@@ -53,8 +53,9 @@
 }
 .homeproducts{
   display:flex;
-  justify-content:space-evenly;
+  justify-content:center;
   flex-wrap:wrap;
+
 }
 .ProductCard.card{
   background: white;
@@ -84,4 +85,8 @@ box-shadow: 0 0 20px rgba(50, 50, 50, 0.5);
 .cartPic{
   width: 150px;
   height: 150px;
+}
+.Homepage{
+  margin-left: 10%;
+  margin-right: 10%;
 }

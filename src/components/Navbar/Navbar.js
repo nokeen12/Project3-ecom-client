@@ -8,10 +8,14 @@ import { AuthContext } from "../../context/auth.context";
 function Navbar(){
     return(
         <nav className='navbar'>
-            <NavItem icon={<SilverLogo />} />
-            <NavItem icon={<BurgerIcon />}>
-                <DropdownMenu />
-            </NavItem>
+            <div id="logo">
+                <NavItem icon={<SilverLogo />} />
+            </div>
+            <div id='items'>
+                <NavItem icon={<BurgerIcon />}>
+                    <DropdownMenu />
+                </NavItem>
+            </div>
         </nav>
     )
 }
