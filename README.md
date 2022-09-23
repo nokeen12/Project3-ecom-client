@@ -1,6 +1,6 @@
-## Age of Silver
+# Age of Silver
 
-# An Ecommerce site for buying jewerly
+## An Ecommerce site for buying jewerly
 
 This full stack web application was made for the purpose of gaining experience in building a simple and straightforward Ecommerce site with a functional cart.
 
