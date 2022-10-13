@@ -35,7 +35,7 @@
   padding: 0;
 }
 .ProductCard.card:hover{
-transform:translateY(-5px);
+/* transform:translateY(-5px); */
 box-shadow: 0 0 20px rgba(50, 50, 50, 0.5);
 }
 .ProductCard.card h3{
@@ -60,4 +60,9 @@ p, h1, h2, h3, h4, a{
 .mainPic{
   width: 100%;
   height: fit-content;
+}
+@media (max-width: 600px){
+  .ProductCard.card{
+    width: 100%;
+  }
 }

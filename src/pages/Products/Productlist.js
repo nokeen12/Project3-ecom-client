@@ -35,8 +35,8 @@ function ProductList(){
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <h3>{product.title}</h3>
-                                    <p>${product.price}</p>
+                                    <p style={{"text-align": "left", "width": "70%"}}>{product.title}</p>
+                                    <p style={{"text-align": "left", "font-weight": "300"}}>${product.price}</p>
                                 </div>
                             </Link>
                         </div>
