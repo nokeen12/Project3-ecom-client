@@ -42,7 +42,9 @@ function ProductDetails(){
         <div className="ProductPage">
             <p>Product details page</p>
             <div className="pictures">
-                <img src={product.gallery && product.gallery[3]} className="mainPic" alt="jewelry"/>
+                <div className="imgContainer">
+                    <img src={product.gallery && product.gallery[3]} className="mainPic" alt="jewelry"/>
+                </div>
                 <div className="galleryPics">
                 </div>
             </div>

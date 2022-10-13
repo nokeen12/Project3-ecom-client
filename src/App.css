@@ -34,17 +34,9 @@
   margin-bottom: 0;
   padding: 0;
 }
-.ProductCard.card:hover{
-/* transform:translateY(-5px); */
-box-shadow: 0 0 20px rgba(50, 50, 50, 0.5);
-}
 .ProductCard.card h3{
   width: 50%;
   margin-left: 25%;
-}
-.mainPic{
-  width: 250px;
-  height: 250px;
 }
 .cartPic{
   width: 150px;
@@ -59,7 +51,15 @@ p, h1, h2, h3, h4, a{
 }
 .mainPic{
   width: 100%;
-  height: fit-content;
+  height: auto;
+  transition: 0.4s all ease-in-out;
+}
+.mainPic:hover{
+  scale: 1.5;
+}
+.imgContainer{
+  display: flex;
+  overflow:hidden;
 }
 @media (max-width: 600px){
   .ProductCard.card{
