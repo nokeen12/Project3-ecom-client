@@ -23,7 +23,7 @@ function HomePage(){
     return(
         <div className="Homepage">
             <h1>Home Page</h1>
-            <Link to="/products">All Products</Link>
+            <Link to="/products" style={{"text-decoration": "underline"}}>All Products</Link>
             <div className="homeproducts">
                 {products.filter((item, index) => index < 3).map(product=>{
                     return(
