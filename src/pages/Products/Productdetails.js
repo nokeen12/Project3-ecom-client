@@ -40,22 +40,23 @@ function ProductDetails(){
     
     return(
         <div className="ProductPage">
-            <p>Product details page</p>
+        <br/>
             <div className="pictures">
-                <div className="imgContainer">
+                <div className="imgContainer"
+                    style={{"width": "80%"}}
+                >
                     <img src={product.gallery && product.gallery[3]} className="mainPic" alt="jewelry"/>
                 </div>
                 <div className="galleryPics">
                 </div>
             </div>
             <div className="description">
-                <h3>{product.title}</h3>
-                <p>${product.price}</p>
+                <p>{product.title}</p>
+                <p style={{"font-weight": "300"}}>${product.price}</p>
             </div>
 
             {isLoggedIn && <form onSubmit={handleAddCartSubmit}><button type='submit'>Add to Cart</button></form>}
             
-
             { errorMessage && <p className="error-message">{errorMessage}</p> }
         </div>
     )

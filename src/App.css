@@ -61,6 +61,10 @@ p, h1, h2, h3, h4, a{
   display: flex;
   overflow:hidden;
 }
+.pictures{
+  display:flex;
+  justify-content: center;
+}
 @media (max-width: 600px){
   .ProductCard.card{
     width: 100%;
