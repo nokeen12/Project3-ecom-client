@@ -25,7 +25,7 @@ function HomePage(){
             <h1>Home Page</h1>
             <Link to="/products" style={{"text-decoration": "underline"}}>All Products</Link>
             <div className="homeproducts">
-                {products.filter((item, index) => index < 3).map(product=>{
+                {products.filter((item, index) => index < 4).map(product=>{
                     return(
                         <div className="ProductCard card" key={product._id}>
                             <Link to={`/products/${product._id}`}>
@@ -36,8 +36,8 @@ function HomePage(){
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <h3>{product.title}</h3>
-                                    <p>${product.price}</p>
+                                    <p style={{"text-align": "left", "width": "70%"}}>{product.title}</p>
+                                    <p style={{"text-align": "left", "font-weight": "300"}}>${product.price}</p>
                                 </div>
                             </Link>
                         </div>
