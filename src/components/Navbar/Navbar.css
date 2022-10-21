@@ -26,8 +26,9 @@
   transform: translateX(-60%);
   background-color: white;
   border: 1px solid black;
-  border-radius: 10px;
-  padding: 5px;
+  border-top: none;
+  /* border-radius: 10px; */
+  /* padding: 5px; */
   overflow: hidden;
 }
 .menu-item{
@@ -39,4 +40,14 @@
 }
 .menu-item:hover{
   background-color: rgba(0,0,0, 0.1);
+}
+@media (max-width: 175px){
+  .navbar{
+    flex-direction: column;
+  }
+  .dropdown{
+    transform: translateX(-30%);
+    border:none;
+    top: 130px;
+  }
 }

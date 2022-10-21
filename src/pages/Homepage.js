@@ -23,12 +23,12 @@ function HomePage(){
     return(
         <div className="Homepage">
             <h1>Home Page</h1>
-            <Link to="/products" style={{"text-decoration": "underline"}}>All Products</Link>
+            <Link to="/products" style={{"textDecoration": "underline"}}>All Products</Link>
             <div className="homeproducts">
                 {products.filter((item, index) => index < 4).map(product=>{
                     return(
                         <div className="ProductCard card" key={product._id}>
-                            <Link to={`/products/${product._id}`}>
+                            <Link to={`/products/${product._id}`} className="link-card">
                                 <div className="pictures">
                                     <div className="imgContainer">
                                         <img src={product.gallery[3]} className="mainPic" alt="jewelry"/>
@@ -38,8 +38,8 @@ function HomePage(){
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <p style={{"text-align": "left", "width": "70%"}}>{product.title}</p>
-                                    <p style={{"text-align": "left", "font-weight": "300"}}>${product.price}</p>
+                                    <p style={{"textAlign": "left", "width": "70%"}}>{product.title}</p>
+                                    <p style={{"textAlign": "left", "fontWeight": "300"}}>${product.price}</p>
                                 </div>
                             </Link>
                         </div>

@@ -27,7 +27,7 @@ function ProductList(){
                 {products.map(product=>{
                     return(
                         <div className="ProductCard card" key={product._id}>
-                            <Link to={`/products/${product._id}`}>
+                            <Link to={`/products/${product._id}`} className="link-card">
                                 <div className="pictures">
                                     <div className="imgContainer">
                                         <img src={product.gallery[3]} className="mainPic" alt="jewelry"/>
@@ -37,8 +37,8 @@ function ProductList(){
                                     </div>
                                 </div>
                                 <div className="description">
-                                    <p style={{"text-align": "left", "width": "70%"}}>{product.title}</p>
-                                    <p style={{"text-align": "left", "font-weight": "300"}}>${product.price}</p>
+                                    <p style={{"textAlign": "left", "width": "70%"}}>{product.title}</p>
+                                    <p style={{"textAlign": "left", "fontWeight": "300"}}>${product.price}</p>
                                 </div>
                             </Link>
                         </div>

@@ -17,12 +17,13 @@
 }
 .homeproducts{
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
   width: 100%;
+  justify-content: space-evenly;
+  margin-top: 50px;
 }
 .homeproducts > *{
-  width: 48%;
+
 }
 .ProductCard.card{
   background: white;
@@ -30,7 +31,6 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  margin-top: 50px;
   margin-bottom: 0;
   padding: 0;
 }
@@ -51,6 +51,7 @@ p, h1, h2, h3, h4, a{
 }
 .mainPic{
   width: 100%;
+  /* max-width: 300px; */
   height: auto;
   transition: 0.4s all ease-in-out;
 }
@@ -64,6 +65,13 @@ p, h1, h2, h3, h4, a{
 .pictures{
   display:flex;
   justify-content: center;
+  aspect-ratio: 1/1;
+  width: 100%;
+}
+.link-card{
+  /* aspect-ratio: 1/1; */
+  max-width: 400px;
+  /* max-height: 400px; */
 }
 @media (max-width: 600px){
   .ProductCard.card{

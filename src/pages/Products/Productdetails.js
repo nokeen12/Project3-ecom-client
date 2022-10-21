@@ -52,7 +52,7 @@ function ProductDetails(){
             </div>
             <div className="description">
                 <p>{product.title}</p>
-                <p style={{"font-weight": "300"}}>${product.price}</p>
+                <p style={{"fontWeight": "300"}}>${product.price}</p>
             </div>
 
             {isLoggedIn && <form onSubmit={handleAddCartSubmit}><button type='submit'>Add to Cart</button></form>}
